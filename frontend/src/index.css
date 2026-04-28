@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+  }
+}
+
+@utility glass-card {
+  background-color: rgb(17 24 39 / 0.6);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgb(31 41 55 / 0.5);
+  border-radius: 1rem;
+}
+
+@utility gradient-text {
+  background-image: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility btn-primary {
+  background-image: linear-gradient(to right, #2563eb, #9333ea);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.25);
+  &:hover {
+    background-image: linear-gradient(to right, #3b82f6, #a855f7);
+    box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.4);
+    transform: scale(1.02);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
+
+@utility btn-secondary {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  border: 1px solid #374151;
+  &:hover {
+    background-color: #374151;
+    border-color: #4b5563;
+  }
+}
+
+@utility input-field {
+  width: 100%;
+  background-color: rgb(31 41 55 / 0.5);
+  border: 1px solid rgb(55 65 81 / 0.5);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #f3f4f6;
+  transition: all 0.3s;
+  &::placeholder {
+    color: #6b7280;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(59 130 246 / 0.5);
+    border-color: rgb(59 130 246 / 0.5);
+  }
+}
+
+@utility textarea-field {
+  width: 100%;
+  background-color: rgb(31 41 55 / 0.5);
+  border: 1px solid rgb(55 65 81 / 0.5);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #f3f4f6;
+  transition: all 0.3s;
+  resize: none;
+  &::placeholder {
+    color: #6b7280;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(59 130 246 / 0.5);
+    border-color: rgb(59 130 246 / 0.5);
+  }
+}
+
+@utility select-field {
+  width: 100%;
+  background-color: rgb(31 41 55 / 0.5);
+  border: 1px solid rgb(55 65 81 / 0.5);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #f3f4f6;
+  transition: all 0.3s;
+  appearance: none;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(59 130 246 / 0.5);
+    border-color: rgb(59 130 246 / 0.5);
+  }
+}
+
+@utility tool-card {
+  background-color: rgb(17 24 39 / 0.6);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgb(31 41 55 / 0.5);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    border-color: rgb(59 130 246 / 0.3);
+    box-shadow: 0 10px 15px -3px rgb(59 130 246 / 0.1);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.markdown-content h1 { @apply text-2xl font-bold mt-6 mb-3 text-gray-100; }
+.markdown-content h2 { @apply text-xl font-bold mt-5 mb-2 text-gray-200; }
+.markdown-content h3 { @apply text-lg font-semibold mt-4 mb-2 text-gray-200; }
+.markdown-content p { @apply mb-3 text-gray-300 leading-relaxed; }
+.markdown-content ul { @apply list-disc list-inside mb-3 space-y-1 text-gray-300; }
+.markdown-content ol { @apply list-decimal list-inside mb-3 space-y-1 text-gray-300; }
+.markdown-content code { @apply bg-gray-800 px-2 py-0.5 rounded text-blue-300 text-sm font-mono; }
+.markdown-content pre { @apply bg-gray-900 rounded-xl p-4 mb-4 overflow-x-auto border border-gray-700; }
+.markdown-content pre code { @apply bg-transparent px-0 py-0 text-gray-300; }
+.markdown-content blockquote { @apply border-l-4 border-blue-500 pl-4 italic text-gray-400 my-4; }
+.markdown-content table { @apply w-full border-collapse mb-4; }
+.markdown-content th { @apply bg-gray-800 px-4 py-2 text-left font-semibold border border-gray-700; }
+.markdown-content td { @apply px-4 py-2 border border-gray-700; }
+.markdown-content hr { @apply my-6 border-gray-700; }
+.markdown-content a { @apply text-blue-400 hover:text-blue-300 underline; }
+.markdown-content strong { @apply text-gray-100 font-semibold; }
